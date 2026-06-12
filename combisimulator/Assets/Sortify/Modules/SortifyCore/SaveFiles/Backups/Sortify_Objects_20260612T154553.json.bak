@@ -1,0 +1,38 @@
+{
+    "objectsData": [
+        {
+            "colors": [],
+            "styles": [],
+            "showComponents": [],
+            "sceneName": "SampleScene"
+        },
+        {
+            "colors": [
+                {
+                    "objID": "PassangersTestScene_LOGIC_6",
+                    "colorValue": "1E00FFFF"
+                },
+                {
+                    "objID": "PassangersTestScene_WORLD_3",
+                    "colorValue": "5A00FFFF"
+                },
+                {
+                    "objID": "PassangersTestScene_ReferencePoints_4",
+                    "colorValue": "00FF9DFF"
+                }
+            ],
+            "styles": [
+                {
+                    "objID": "PassangersTestScene_LOGIC_6",
+                    "styleType": 1
+                },
+                {
+                    "objID": "PassangersTestScene_WORLD_3",
+                    "styleType": 1
+                }
+            ],
+            "showComponents": [],
+            "sceneName": "PassangersTestScene"
+        }
+    ]
+}

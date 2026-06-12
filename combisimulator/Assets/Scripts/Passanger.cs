@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class Passanger : MonoBehaviour , IAgent
     [SerializeField] private Canvas canvas ;
     [SerializeField] private Image filledImage ;
     [SerializeField] private TextMeshProUGUI imageText ;
+    private bool CanCharge;
 
     //  PROPERTIES
     [field:SerializeField] public State CurrentState { get ; private set ; }
@@ -31,6 +33,10 @@ public class Passanger : MonoBehaviour , IAgent
 
     float distanceW = 0.2f ;
 
+    private void Awake()
+    {
+        CanCharge = false;
+    }
 
     private void Start ()
     {
@@ -136,7 +142,7 @@ public class Passanger : MonoBehaviour , IAgent
                 {
                     _walkingProgress = WalkingProgress.Seat ;
                     Velocity = Vector3.zero ;
-                    Debug.Log ( "Arrived" ) ;
+                    // Debug.Log ( "Arrived" ) ;
                 }
             }
             else if ( _walkingProgress == WalkingProgress.Seat )
@@ -199,6 +205,7 @@ public class Passanger : MonoBehaviour , IAgent
             case State.Seated :
                 _attendanceWait = attendTime ;
                 canvas.enabled = true ;
+                CanCharge = true ;
                 break ;
 
             case State.Attended :
@@ -207,6 +214,7 @@ public class Passanger : MonoBehaviour , IAgent
 
             case State.WalkingOut :
                 _walkingProgress = WalkingProgress.Seat ;
+                CanCharge = false;
                 break ;
         }
     }
@@ -217,4 +225,14 @@ public class Passanger : MonoBehaviour , IAgent
         SwitchState ( State.Attended ) ;
     }
     #endregion // ----------------------------------------------------------------
+
+    public bool ChargeState()
+    {
+        return CanCharge ;
+    }
+
+    public float timePassenger()
+    {
+        return _attendanceWait;
+    }
 }

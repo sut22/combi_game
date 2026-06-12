@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rb;
     private ColletiveChargeUI _colletiveChargeUI;
     private ChargeMoney _money;
+    private bool _canMove = true;
 
 
     private void Awake()
     {
         _colletiveChargeUI = GameObject.Find("ColletiveChargeUI").GetComponent<ColletiveChargeUI>();
         _rb = GetComponent<Rigidbody>();
+        _canMove = true;
     }
 
     private void Start()
@@ -27,12 +29,12 @@ public class PlayerMovement : MonoBehaviour
     {
         
         _moveInput = context.ReadValue<Vector2>();
-        //Debug.Log("VAR" + moveInput.x  + moveInput.y);
+        // Debug.Log("VAR" + _moveInput.x  + _moveInput.y);
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started && _money.CanCharge == true)
+        if (context.started && _money.canInteract)
         {
             Debug.Log("interactua");
             _colletiveChargeUI.ActiveUI(true);
@@ -42,7 +44,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 movement = new Vector3(_moveInput.x, 0, _moveInput.y);
+        
+        if (!_canMove)  return;
+        
+        Vector3 movement = new Vector3(_moveInput.y, 0, -_moveInput.x);
         _rb.MovePosition(_rb.position + movement * (speed * Time.deltaTime));
     }
 }

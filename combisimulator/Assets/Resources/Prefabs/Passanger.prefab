@@ -86,9 +86,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7155771892228528393}
   - component: {fileID: 5332474051297781774}
+  - component: {fileID: 1803668118576160267}
   m_Layer: 0
   m_Name: Passanger
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +127,29 @@ MonoBehaviour:
   filledImage: {fileID: 4625752843431525170}
   imageText: {fileID: 1381116666443492276}
   <CurrentState>k__BackingField: 0
+--- !u!136 &1803668118576160267
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119974937034865958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3378446149793802666
 GameObject:
   m_ObjectHideFlags: 0

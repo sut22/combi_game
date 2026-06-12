@@ -1,0 +1,21 @@
+{
+    "username": "",
+    "userSettings": [
+        {
+            "settingName": "ShowComponentIcons",
+            "value": false
+        },
+        {
+            "settingName": "ShowNotesSection",
+            "value": false
+        },
+        {
+            "settingName": "ShowAddComponentSection",
+            "value": false
+        },
+        {
+            "settingName": "ShowDefaultComponents",
+            "value": false
+        }
+    ]
+}

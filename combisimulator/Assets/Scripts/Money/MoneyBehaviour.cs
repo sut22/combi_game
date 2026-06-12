@@ -6,20 +6,22 @@ using Random = UnityEngine.Random;
 
 public class MoneyBehaviour : MonoBehaviour
 {
+    private float SelectedPrice;
+    private float SelectedChange;
 
     
     List<float> moneyPassenger = new List<float>() {5.0f, 2.0f, 10f, 3.0f , 1.0f};
     List<float> PrecioPassenger = new List<float>() {5.0f, 2.0f, 0.5f, 2.5f, 3.0f , 1.0f};
-
+    
 
     void OnEnable()
     {
-        float change = ChangeMoney();
-        SeleccionarPasajeAleatorio(change);
-        Debug.Log(change);
+        SelectedChange = ChangeMoney();
+        SelectedPrice = SeleccionarPasajeAleatorio(SelectedChange);
+        Debug.Log(SelectedChange);
     }
 
-    private void SeleccionarPasajeAleatorio(float change)
+    private float SeleccionarPasajeAleatorio(float change)
     {
         int indexrandom = Random.Range(0, PrecioPassenger.Count);
         
@@ -31,6 +33,8 @@ public class MoneyBehaviour : MonoBehaviour
         {
             Debug.Log("Pasaje exacto");
         }
+        
+        return price;
     }
 
     float ChangeMoney()
@@ -39,4 +43,16 @@ public class MoneyBehaviour : MonoBehaviour
         
         return moneyPassenger[indexrandom];
     }
+
+    public float GetPrice()
+    {
+        return SelectedPrice;
+    }
+    
+    public float GetChange()
+    {
+        return SelectedChange;
+    }
+    
+    
 }

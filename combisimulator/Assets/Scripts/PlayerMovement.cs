@@ -38,13 +38,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("interactua");
             _colletiveChargeUI.ActiveUI(true);
+            _canMove = false;
         }
         
     }
 
     private void Update()
     {
-        
+        if(_colletiveChargeUI.ActiveUI(true))
         if (!_canMove)  return;
         
         Vector3 movement = new Vector3(_moveInput.y, 0, -_moveInput.x);
